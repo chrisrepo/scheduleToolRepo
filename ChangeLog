@@ -1,0 +1,8 @@
+ChangeLog
+
+3-24-15
+  Initial commit to git. 
+  Current functionality:
+    - Search bar implements typeahead.js to give it autocomplete functionality
+    - Users can search for their classes and a database is queried and returns the results of their search after each keystroke
+    - Database contains all classes offered at CSULB
