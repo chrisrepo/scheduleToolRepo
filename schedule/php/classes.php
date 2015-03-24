@@ -18,6 +18,7 @@
             SELECT courseCode, courseTitle
             FROM Class
             WHERE courseCode LIKE :query
+            OR courseTitle LIKE :query
     ");
     
     $classes->execute([
