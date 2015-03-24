@@ -1,0 +1,70 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 23, 2015, 9:50:36 PM
+    Author     : Chris Repanich
+*/
+
+body, html {
+    font: 1em "Tahoma", sans-serif;
+}
+
+input {
+    font: inherit;
+}
+
+input[type='submit']{
+    border: 1px solid #bbb;
+    background-color:#fff;
+    padding: 5px 10px;
+    vertical-align: bottom;
+    border-radius: 8px;
+    border-width: 2px;
+}
+#myClasses{
+ width: 550px;   
+}
+
+input[type='text']{
+    padding: 5px 10px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    width: 90%;
+    border-width: 2px;
+}
+
+.tt-input:focus{
+    outline: none;
+}
+
+.tt-dropdown-menu{
+    width: 100%;
+    border: 1px solid #bbb;
+    text-align: left;
+    margin-top: 10px;
+    padding:0;
+    border-radius: 8px;
+    overflow: hidden;
+    border-color: #ddd;
+}
+
+.tt-suggestion{
+    padding: 5px 10px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.tt-suggestion p {
+    margin: 5px 0;
+}
+
+.tt-hint {
+    color: #bbb;
+}
+
+.tt-suggestion.tt-cursor{
+    background-color: #ddd;
+}

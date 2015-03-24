@@ -1,0 +1,2 @@
+AuthName "scheduleJS"
+AuthUserFile "/home3/chrisrep/.htpasswds/public_html/schedule/js/passwd"

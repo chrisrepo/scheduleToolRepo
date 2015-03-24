@@ -1,0 +1,2 @@
+AuthName "schedulePHP"
+AuthUserFile "/home3/chrisrep/.htpasswds/public_html/schedule/php/passwd"
