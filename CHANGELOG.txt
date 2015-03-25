@@ -1,6 +1,7 @@
 ChangeLog
 
-3-24-15
+Date:  3-24-15
+Version: v.01     
   Initial commit to git. 
   Current functionality:
     - Search bar implements typeahead.js to give it autocomplete functionality
