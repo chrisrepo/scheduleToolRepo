@@ -22,7 +22,7 @@
     ");
     
     $classes->execute([
-        'query' => "{$_GET['query']}%"
+        'query' => "%{$_GET['query']}%"
     ]);
     
     echo json_encode($classes->fetchAll());
