@@ -26,6 +26,3 @@
     ]);
     
     echo json_encode($classes->fetchAll());
-            
-    
-    

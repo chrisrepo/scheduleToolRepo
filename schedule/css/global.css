@@ -7,7 +7,10 @@ and open the template in the editor.
     Created on : Mar 23, 2015, 9:50:36 PM
     Author     : Chris Repanich
 */
-
+@font-face {
+    font-family: 'Satellite'; 
+    src: url('../../css/fonts/Satellite.otf'); 
+}
 body, html {
     font: 1em "Tahoma", sans-serif;
 }
@@ -41,6 +44,7 @@ input[type='text']{
 }
 
 .tt-dropdown-menu{
+    background-color: white;
     width: 100%;
     border: 1px solid #bbb;
     text-align: left;
@@ -49,6 +53,15 @@ input[type='text']{
     border-radius: 8px;
     overflow: hidden;
     border-color: #ddd;
+}
+
+.classListing{
+    font-size: 14px;
+    font: Satellite;
+}
+
+input.typeahead{
+  z-index: 50;
 }
 
 .tt-suggestion{
