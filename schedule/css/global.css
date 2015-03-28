@@ -56,10 +56,14 @@ input[type='text']{
 }
 
 .classListing{
-    font-size: 14px;
-    font: Satellite;
+    font-size: 15px;
+    font-family: Satellite;
 }
 
+.classListingHeader{
+    font-size: 18px;
+    font-family: Satellite;
+}
 input.typeahead{
   z-index: 50;
 }

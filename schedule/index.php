@@ -55,7 +55,7 @@ and open the template in the editor.
                 
                 echo "<br><br>";
                 //format output
-                echo "<div class='row'>";
+                echo "<div class='row classListingHeader'>";
                 echo "<div class='col-lg-1'>Course</div>";
                 echo "<div class='col-lg-2'>Course Title </div>";
                 echo "<div class='col-lg-1'>Units</div>";
