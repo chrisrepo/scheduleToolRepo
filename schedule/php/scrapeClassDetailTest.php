@@ -29,8 +29,6 @@ and open the template in the editor.
             if (strpos($e->href,'html') === false){
                 continue 1;
             }
-            echo $e->href . "<br>";
-            echo number_format(memory_get_usage()) . "<br>";
             $innerHtml = file_get_html('http://web.csulb.edu/depts/enrollment/registration/class_schedule/Fall_2015/By_Subject/'.$e->href);
             $blocks = $innerHtml->find('div[class=courseBlock]');
             $innerHtml = NULL;
@@ -46,7 +44,8 @@ and open the template in the editor.
                 //except first row (display text)
                 $sectionTable = $courseBlock->find('tr');
                 $sql = "INSERT INTO CourseOffering (`courseCode`,`courseTitle`,`units`,`courseInfo`,`offeringSection`,`offeringCode`,`offeringType`,`offeringDays`,`offeringTime`,`openSeat`,`offeringLocation`,`offeringTeacher`) VALUES ";
-
+                
+                echo $courseCode." table size: " .$sectionTable."<br";
                 //increment on loop so last value appends to sql with ; instead of ,
                 $j=0;
                 $courseBlock = NULL;
@@ -71,16 +70,17 @@ and open the template in the editor.
                     $teacher = $offering->children(8)->outertext;
                     
                     $j++;
+                    
                     if ($j >= sizeof($sectionTable)){
-                        $sql = $sql . "('".$courseCode."', '".$courseTitle."', '". $units
-                         ."', '".$courseInfo."', '".$section."', '".$classCode."', '". $classType
-                          ."', '".$classDays."', '".$classTime."', '".$openSeat."', '". $classLocation
-                            ."', '".$teacher."'); <br><br>";
+                        $sql = $sql . '("'.$courseCode.'", "'.$courseTitle.'", "'. $units
+                         .'", "'.$courseInfo.'", "'.$section.'", "'.$classCode.'", "'. $classType
+                          .'", "'.$classDays.'", "'.$classTime.'", "'.$openSeat.'", "'. $classLocation
+                            .'", "'.$teacher.'"); <br><br>';
                     } else {
-                        $sql = $sql . "('".$courseCode."', '".$courseTitle."', '". $units
-                         ."', '".$courseInfo."', '".$section."', '".$classCode."', '". $classType
-                          ."', '".$classDays."', '".$classTime."', '".$openSeat."', '". $classLocation
-                            ."', '".$teacher."'), ";
+                        $sql = $sql . '("'.$courseCode.'", "'.$courseTitle.'", "'. $units
+                         .'", "'.$courseInfo.'", "'.$section.'", "'.$classCode.'", "'. $classType
+                          .'", "'.$classDays.'", "'.$classTime.'", "'.$openSeat.'", "'. $classLocation
+                            .'", "'.$teacher.'"), ';
                     }
                     
                     
@@ -101,7 +101,7 @@ and open the template in the editor.
              * the class list
              */
         echo "<br>query array length".sizeof($query)."<br>";
-
+        
         foreach ($query as $insert){
             echo $insert;
         }
