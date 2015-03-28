@@ -45,7 +45,7 @@ and open the template in the editor.
                 
                 $class = explode(" - ", $_GET['myClass']);
                 //initialize multiquery
-                $query = "SELECT * FROM CourseOffering WHERE courseCode= '".$class[0]."'";
+                $query = "SELECT * FROM CourseOffering WHERE courseCode= '".$class[0]."' ORDER BY offeringSection";
                 $result = mysqli_query($connection, $query);
                 if (!$result) {
                     $message  = 'Invalid query: ' . mysql_error() . "\n";
@@ -56,28 +56,26 @@ and open the template in the editor.
                 echo "<br><br>";
                 //format output
                 echo "<div class='row classListingHeader'>";
-                echo "<div class='col-lg-1'>Course</div>";
-                echo "<div class='col-lg-2'>Course Title </div>";
-                echo "<div class='col-lg-1'>Units</div>";
+                echo "<div class='col-lg-2'><div class='row'> <div class='col-lg-8'>Course</div>"
+                        ."<div class='col-lg-4'>Units</div></div></div>";
                 echo "<div class='col-lg-1'>Section</div>";
                 echo "<div class='col-lg-1'>Code</div>";
                 echo "<div class='col-lg-1'>Type</div>";
-                echo "<div class='col-lg-1'>Day(s)</div>";
-                echo "<div class='col-lg-1'>Time</div>";
+                echo "<div class='col-lg-2'><div class='row'> <div class='col-lg-4'>Day(s)</div>"
+                    ."<div class='col-lg-8'>Time</div></div></div>";
                 echo "<div class='col-lg-1'>Location</div>";
                 echo "<div class='col-lg-1'>Teacher</div>";
                 echo "<div class='col-lg-1'>Availability</div>";
                 echo "</div><br>";
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<div class='row classListing'>";
-                    echo "<div class='col-lg-1'>".$row['courseCode']."</div>";
-                    echo "<div class='col-lg-2'>".$row['courseTitle']."</div>";
-                    echo "<div class='col-lg-1'>".$row['units']."</div>";
+                    echo "<div class='col-lg-2'><div class='row'><div class='col-lg-8'>".$row['courseCode']."</div>";
+                    echo "<div class='col-lg-4'>".$row['units']."</div></div></div>";
                     echo "<div class='col-lg-1'>".$row['offeringSection']."</div>";
                     echo "<div class='col-lg-1'>".$row['offeringCode']."</div>";
                     echo "<div class='col-lg-1'>".$row['offeringType']."</div>";
-                    echo "<div class='col-lg-1'>".$row['offeringDays']."</div>";
-                    echo "<div class='col-lg-1'>".$row['offeringTime']."</div>";
+                    echo "<div class='col-lg-2'><div class='row'> <div class='col-lg-4'>".$row['offeringDays']."</div>";
+                    echo "<div class='col-lg-8'>".$row['offeringTime']."</div></div></div>";
                     echo "<div class='col-lg-1'>".$row['offeringLocation']."</div>";
                     echo "<div class='col-lg-1'>".$row['offeringTeacher']."</div>";
                     if (strcmp($row['openSeat'],"Yes")===0){
