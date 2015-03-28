@@ -21,5 +21,4 @@ Version: v.03 <br>
   Implemented search so when user searches a valid class (preferably by clicking the autocomplete suggestions) it brings up a list of all of the class offerings for that course <br>
    
 Future Additions:<br>
-   &nbsp; - Class offerings (list of times/teachers/etc. for each class) to show when you search a class
    &nbsp; - Automated schedule making, when you choose multiple classes 
