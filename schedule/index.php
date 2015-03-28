@@ -56,6 +56,7 @@ and open the template in the editor.
                 echo "<br><br>";
                 //format output
                 echo "<div class='row classListingHeader'>";
+                echo "<div class='col-lg-1'></div>";
                 echo "<div class='col-lg-2'><div class='row'> <div class='col-lg-8'>Course</div>"
                         ."<div class='col-lg-4'>Units</div></div></div>";
                 echo "<div class='col-lg-1'>Section</div>";
@@ -66,9 +67,11 @@ and open the template in the editor.
                 echo "<div class='col-lg-1'>Location</div>";
                 echo "<div class='col-lg-1'>Teacher</div>";
                 echo "<div class='col-lg-1'>Availability</div>";
+                echo "<div class='col-lg-1'></div>";
                 echo "</div><br>";
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<div class='row classListing'>";
+                    echo "<div class='col-lg-1'></div>";
                     echo "<div class='col-lg-2'><div class='row'><div class='col-lg-8'>".$row['courseCode']."</div>";
                     echo "<div class='col-lg-4'>".$row['units']."</div></div></div>";
                     echo "<div class='col-lg-1'>".$row['offeringSection']."</div>";
@@ -85,6 +88,7 @@ and open the template in the editor.
                         //unavailable or N/A
                         echo "<div class='col-lg-1'><span class='label label-danger'>Unavailable</span></div>";
                     }
+                    echo "<div class='col-lg-1'></div>";
                     echo "</div><br>";
                 }
             }   
