@@ -56,13 +56,23 @@ input[type='text']{
 }
 
 .classListing{
+    padding-top:5px;
+    padding-bottom: 5px;
     font-size: 15px;
     font-family: Satellite;
 }
 
+.readabilityLight{
+    background-color: #fff;
+}
+
+.readabilityDark{
+    background-color: #ddd;
+}
 .classListingHeader{
     font-size: 18px;
     font-family: Satellite;
+    text-decoration: underline;
 }
 input.typeahead{
   z-index: 50;

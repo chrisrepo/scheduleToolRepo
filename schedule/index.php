@@ -26,8 +26,9 @@ and open the template in the editor.
                 <div class='col-lg-2'></div>
                 <div class='search col-lg-8'>
                     <form action="" class='centerfy' method="get" autocomplete="off">
-                        <input type="text" name="myClass" id="myClasses" value="<?php echo $value ?>"> 
-                        <input type="submit" name="send" class="button" value="Go">
+                        <input type="text" name="myClass" id="myClasses" 
+                            <?php echo (isset($_GET['send'])) ? 'value = "'.$_GET['myClass'].'"' : ''?> >
+                        <input type="submit" name="send" class="button" value='Search'>
                     </form>
                 </div>
                 <div class='col-lg-2'></div>
@@ -43,7 +44,9 @@ and open the template in the editor.
                 $connection = new mysqli($dbhost, $dbusername, $dbpassword) or die('Could not connect');
                 $db = mysqli_select_db($connection, $dbname) or die('Couldnt select DB');
                 
+                
                 $class = explode(" - ", $_GET['myClass']);
+                $value = $_GET['myClass'];
                 //initialize multiquery
                 $query = "SELECT * FROM CourseOffering WHERE courseCode= '".$class[0]."' ORDER BY offeringSection";
                 $result = mysqli_query($connection, $query);
@@ -56,40 +59,47 @@ and open the template in the editor.
                 echo "<br><br>";
                 //format output
                 echo "<div class='row classListingHeader'>";
-                echo "<div class='col-lg-1'></div>";
                 echo "<div class='col-lg-2'><div class='row'> <div class='col-lg-8'>Course</div>"
                         ."<div class='col-lg-4'>Units</div></div></div>";
                 echo "<div class='col-lg-1'>Section</div>";
                 echo "<div class='col-lg-1'>Code</div>";
                 echo "<div class='col-lg-1'>Type</div>";
-                echo "<div class='col-lg-2'><div class='row'> <div class='col-lg-4'>Day(s)</div>"
-                    ."<div class='col-lg-8'>Time</div></div></div>";
-                echo "<div class='col-lg-1'>Location</div>";
-                echo "<div class='col-lg-1'>Teacher</div>";
-                echo "<div class='col-lg-1'>Availability</div>";
-                echo "<div class='col-lg-1'></div>";
+                echo "<div class='col-lg-4'><div class='row'> <div class='col-lg-3'>Day(s)</div>"
+                    ."<div class='col-lg-5'>Time</div>"
+                    ."<div class='col-lg-4'>Location</div></div></div>";
+                echo "<div class='col-lg-2'><div class='row'><div class='col-lg-8'>Teacher</div>"
+                    ."<div class='col-lg-4'>Availability</div></div></div>";
                 echo "</div><br>";
+                $index = 0;
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<div class='row classListing'>";
-                    echo "<div class='col-lg-1'></div>";
+                    
+                    echo "<div class='row classListing";
+                    if($index & 1){
+                        //odd
+                        echo " readabilityDark'>";
+                    } else {
+                        //even
+                        echo " readabilityLight'>";
+                    }
                     echo "<div class='col-lg-2'><div class='row'><div class='col-lg-8'>".$row['courseCode']."</div>";
                     echo "<div class='col-lg-4'>".$row['units']."</div></div></div>";
                     echo "<div class='col-lg-1'>".$row['offeringSection']."</div>";
                     echo "<div class='col-lg-1'>".$row['offeringCode']."</div>";
                     echo "<div class='col-lg-1'>".$row['offeringType']."</div>";
-                    echo "<div class='col-lg-2'><div class='row'> <div class='col-lg-4'>".$row['offeringDays']."</div>";
-                    echo "<div class='col-lg-8'>".$row['offeringTime']."</div></div></div>";
-                    echo "<div class='col-lg-1'>".$row['offeringLocation']."</div>";
-                    echo "<div class='col-lg-1'>".$row['offeringTeacher']."</div>";
+                    echo "<div class='col-lg-4'><div class='row'> <div class='col-lg-3'>".$row['offeringDays']."</div>";
+                    echo "<div class='col-lg-5'>".$row['offeringTime']."</div>";
+                    echo "<div class='col-lg-4'>".$row['offeringLocation']."</div></div></div>";
+                    echo "<div class='col-lg-2'><div class='row'><div class='col-lg-8'>".$row['offeringTeacher']."</div>";
                     if (strcmp($row['openSeat'],"Yes")===0){
                         //available seats
-                        echo "<div class='col-lg-1'><span class='label label-success'>Open Seats</span></div>";
+                        echo "<div class='col-lg-4'><span class='label label-success'>Open Seats</span></div></div></div>";
                     } else {
                         //unavailable or N/A
-                        echo "<div class='col-lg-1'><span class='label label-danger'>Unavailable</span></div>";
+                        echo "<div class='col-lg-4'><span class='label label-danger'>Unavailable</span></div></div></div>";
                     }
                     echo "<div class='col-lg-1'></div>";
-                    echo "</div><br>";
+                    echo "</div>";
+                    $index++;
                 }
             }   
             ?>
