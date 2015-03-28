@@ -12,7 +12,13 @@ Version: v.01  <br>
 Change: 2 <br>
 Date: 3-28-15 <br>
 Version: v.02 <br>
-  Added Course offering scrape
+  Added Course offering scrape <br>
+  
+Change: 3 <br>
+Date: 3-28-15 <br>
+Version: v.03 <br>
+  IT SEARCHES!! And returns stuff :)
+  Implemented search so when user searches a valid class (preferably by clicking the autocomplete suggestions) it brings up a list of all of the class offerings for that course <br>
    
 Future Additions:<br>
    &nbsp; - Class offerings (list of times/teachers/etc. for each class) to show when you search a class
