@@ -57,16 +57,18 @@ and open the template in the editor.
                     }
                     
                     //no class code, not official class at the moment, so skip to prevent err
-                    if (strcmp($offering->children(1)->class, 'multiMeeting') === 0){
-                        $j++;
-                        continue 1;
-                    }
+                    
                     $section = $offering->children(0)->outertext;
                     $classCode = $offering->children(1)->outertext;
                     $classType = $offering->children(3)->outertext;
                     $classDays = $offering->children(4)->outertext;
                     $classTime = $offering->children(5)->outertext;
-                    $openSeat= $offering->children(6)->firstChild()->firstChild()->title;
+                    if (strcmp($offering->children(1)->class, 'multiMeeting') === 0){
+                        $openSeat="N/A";
+                    } else {
+                        $openSeat= $offering->children(6)->firstChild()->firstChild()->title;
+                    }
+                    
                     $classLocation = $offering->children(7)->outertext;
                     $teacher = $offering->children(8)->outertext;
                     
