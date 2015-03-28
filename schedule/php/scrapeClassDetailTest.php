@@ -45,11 +45,11 @@ and open the template in the editor.
                 $sectionTable = $courseBlock->find('tr');
                 $sql = "INSERT INTO CourseOffering (`courseCode`,`courseTitle`,`units`,`courseInfo`,`offeringSection`,`offeringCode`,`offeringType`,`offeringDays`,`offeringTime`,`openSeat`,`offeringLocation`,`offeringTeacher`) VALUES ";
                 
-                echo $courseCode." table size: " .sizeof($sectionTable)."<br>";
                 //increment on loop so last value appends to sql with ; instead of ,
                 $j=0;
                 $courseBlock = NULL;
                 foreach($sectionTable as $offering){
+                    
                     
                     if ($j== 0){
                         $j++;
@@ -58,6 +58,7 @@ and open the template in the editor.
                     
                     //no class code, not official class at the moment, so skip to prevent err
                     if (strcmp($offering->children(1)->class, 'multiMeeting') === 0){
+                        $j++;
                         continue 1;
                     }
                     $section = $offering->children(0)->outertext;
