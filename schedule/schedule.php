@@ -16,23 +16,27 @@ and open the template in the editor.
     <body>
         <div class="container">
                 <div class='row'>
-                <div class='col-lg-3'></div>
-                <div class='col-lg-6'>
+                <div class='col-md-3'>
+                  <a class="backButton" href="index.html">Back</a>
+               </div>
+                <div class='col-md-6'>
                     <h1 class='satelliteFontHeader'>Class Schedule Tool</h1>
                 </div>
-                <div class='col-lg-3'></div>
+                <div class='col-md-3'></div>
             </div>
             <div class='row'>
-                <div class='col-lg-2'></div>
-                <div class='search col-lg-8'>
+                <div class='col-md-2'></div>
+                <div class='search col-md-8'>
                     <form action="" class='centerfy' method="get" autocomplete="off">
-                        <input type="text" name="myClass" id="myClasses" 
+                        <input type="text" placeholder="Enter a class to search... (Ex: POSC 100)"
+                           name="myClass" id="myClasses" 
                             <?php echo (isset($_GET['send'])) ? 'value = "'.$_GET['myClass'].'"' : ''?> >
                         <input type="submit" name="send" class="button" value='Search'>
                     </form>
                 </div>
-                <div class='col-lg-2'></div>
+                <div class='col-md-2'></div>
             </div>
+            <div class="holdSearchContents">
             <?php
             if(isset($_GET['send']) && !empty($_GET['myClass'])){
                 $dbhost = "localhost";
@@ -59,16 +63,16 @@ and open the template in the editor.
                 echo "<br><br>";
                 //format output
                 echo "<div class='row classListingHeader'>";
-                echo "<div class='col-lg-2'><div class='row'> <div class='col-lg-8'>Course</div>"
-                        ."<div class='col-lg-4'>Units</div></div></div>";
-                echo "<div class='col-lg-1'>Section</div>";
-                echo "<div class='col-lg-1'>Code</div>";
-                echo "<div class='col-lg-1'>Type</div>";
-                echo "<div class='col-lg-4'><div class='row'> <div class='col-lg-3'>Day(s)</div>"
-                    ."<div class='col-lg-5'>Time</div>"
-                    ."<div class='col-lg-4'>Location</div></div></div>";
-                echo "<div class='col-lg-2'><div class='row'><div class='col-lg-8'>Teacher</div>"
-                    ."<div class='col-lg-4'>Availability</div></div></div>";
+                echo "<div class='col-md-2'><div class='row'> <div class='col-md-8'>Course</div>"
+                        ."<div class='col-md-4'>Units</div></div></div>";
+                echo "<div class='col-md-1'>Section</div>";
+                echo "<div class='col-md-1'>Code</div>";
+                echo "<div class='col-md-1'>Type</div>";
+                echo "<div class='col-md-4'><div class='row'> <div class='col-md-3'>Day(s)</div>"
+                    ."<div class='col-md-5'>Time</div>"
+                    ."<div class='col-md-4'>Location</div></div></div>";
+                echo "<div class='col-md-2'><div class='row'><div class='col-md-8'>Teacher</div>"
+                    ."<div class='col-md-4'>Availability</div></div></div>";
                 echo "</div><br>";
                 $index = 0;
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -81,28 +85,29 @@ and open the template in the editor.
                         //even
                         echo " readabilityLight'>";
                     }
-                    echo "<div class='col-lg-2'><div class='row'><div class='col-lg-8'>".$row['courseCode']."</div>";
-                    echo "<div class='col-lg-4'>".$row['units']."</div></div></div>";
-                    echo "<div class='col-lg-1'>".$row['offeringSection']."</div>";
-                    echo "<div class='col-lg-1'>".$row['offeringCode']."</div>";
-                    echo "<div class='col-lg-1'>".$row['offeringType']."</div>";
-                    echo "<div class='col-lg-4'><div class='row'> <div class='col-lg-3'>".$row['offeringDays']."</div>";
-                    echo "<div class='col-lg-5'>".$row['offeringTime']."</div>";
-                    echo "<div class='col-lg-4'>".$row['offeringLocation']."</div></div></div>";
-                    echo "<div class='col-lg-2'><div class='row'><div class='col-lg-8'>".$row['offeringTeacher']."</div>";
+                    echo "<div class='col-md-2'><div class='row'><div class='col-md-8'>".$row['courseCode']."</div>";
+                    echo "<div class='col-md-4'>".$row['units']."</div></div></div>";
+                    echo "<div class='col-md-1'>".$row['offeringSection']."</div>";
+                    echo "<div class='col-md-1'>".$row['offeringCode']."</div>";
+                    echo "<div class='col-md-1'>".$row['offeringType']."</div>";
+                    echo "<div class='col-md-4'><div class='row'> <div class='col-md-3'>".$row['offeringDays']."</div>";
+                    echo "<div class='col-md-5'>".$row['offeringTime']."</div>";
+                    echo "<div class='col-md-4'>".$row['offeringLocation']."</div></div></div>";
+                    echo "<div class='col-md-2'><div class='row'><div class='col-md-8'>".$row['offeringTeacher']."</div>";
                     if (strcmp($row['openSeat'],"Yes")===0){
                         //available seats
-                        echo "<div class='col-lg-4'><span class='label label-success'>Open Seats</span></div></div></div>";
+                        echo "<div class='col-md-4'><span class='label label-success'>Open Seats</span></div></div></div>";
                     } else {
                         //unavailable or N/A
-                        echo "<div class='col-lg-4'><span class='label label-danger'>Unavailable</span></div></div></div>";
+                        echo "<div class='col-md-4'><span class='label label-danger'>Unavailable</span></div></div></div>";
                     }
-                    echo "<div class='col-lg-1'></div>";
+                    echo "<div class='col-md-1'></div>";
                     echo "</div>";
                     $index++;
                 }
             }   
             ?>
+            </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="js/typeahead.js"></script>

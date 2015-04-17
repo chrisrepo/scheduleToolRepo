@@ -74,6 +74,7 @@ input[type='text']{
     font-family: Satellite;
     text-decoration: underline;
 }
+
 input.typeahead{
   z-index: 50;
 }
@@ -94,4 +95,26 @@ input.typeahead{
 
 .tt-suggestion.tt-cursor{
     background-color: #ddd;
+}
+
+.underConstruction {
+   color: firebrick;
+}
+
+.backButton {
+   border: 1px solid #bbb;
+   background-color:#fff;
+   padding: 5px 10px;
+   vertical-align: bottom;
+   border-radius: 8px;
+   border-width: 2px;
+   margin-top: 50px;
+   color: black;
+}
+
+.holdSearchContents {
+   /*
+      TO-DO : create border that contains all of the returned search results
+        to try and give it slightly better readability
+   */
 }
