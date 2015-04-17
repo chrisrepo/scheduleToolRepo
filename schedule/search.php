@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Schedule Tool</title>
+        <title>Search Tool</title>
         <link rel="shortcut icon" href="../images/favicon.ico" />
         <link rel='stylesheet' href='../css/bootstrap.min.css'>
         <link rel='stylesheet' href='../css/custom.css'>
@@ -17,15 +17,18 @@ and open the template in the editor.
         <div class="container">
                 <div class='row'>
                 <div class='col-md-3'>
-                  <a class="backButton" href="index.html">Back</a>
+                  <a href='index.html' class='backButton'>Back</a>
                </div>
                 <div class='col-md-6'>
-                    <h1 class='satelliteFontHeader'>Class Schedule Tool</h1>
+                    <h1 class='satelliteFontHeader'>Class Search Tool</h1>
                 </div>
                 <div class='col-md-3'></div>
             </div>
             <div class='row'>
-                <div class='col-md-2'></div>
+                <div class='col-md-1'></div>
+                <div class='col-md-1'>
+                  
+                </div>
                 <div class='search col-md-8'>
                     <form action="" class='centerfy' method="get" autocomplete="off">
                         <input type="text" placeholder="Enter a class to search... (Ex: POSC 100)"
